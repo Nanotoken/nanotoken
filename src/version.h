@@ -15,8 +15,8 @@
 
 // These need to be macro's, as version.cpp's voodoo requires it
 #define CLIENT_VERSION_MAJOR       3
-#define CLIENT_VERSION_MINOR       1
-#define CLIENT_VERSION_REVISION    1
+#define CLIENT_VERSION_MINOR       2
+#define CLIENT_VERSION_REVISION    0
 #define CLIENT_VERSION_BUILD       0
 
 static const int CLIENT_VERSION =
@@ -32,7 +32,7 @@ extern const std::string CLIENT_DATE;
 //
 // network protocol versioning
 //
-static const int PROTOCOL_VERSION = 67779;
+static const int PROTOCOL_VERSION = 67780;
 
 // earlier versions of nanotoken not supported
 static const int MIN_PROTO_VERSION = 67778;
@@ -42,7 +42,7 @@ static const int MIN_PROTO_VERSION = 67778;
 static const int CADDR_TIME_VERSION = 67777;
 
 // only request blocks from nodes outside this range of versions
-static const int NOBLKS_VERSION_START = 60000;
+static const int NOBLKS_VERSION_START = 60001;
 static const int NOBLKS_VERSION_END = 67778;
 
 // BIP 0031, pong message, is enabled for all versions AFTER this one
