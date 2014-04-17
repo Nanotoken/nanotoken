@@ -934,7 +934,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan =  5 * 90; //  >7.5 minutes (or 5 blocks);
+static const int64 nTargetTimespan =  6 * 60 * 3 * 20; //  >6 hours;
 static const int64 nTargetSpacing = 1 * 90; //  1.5 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
@@ -2508,12 +2508,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             return false;
         }
 
-        if(nTime < 1397808000) //Unix time stamp at 4/18/2014 8:00 Greenwich Mean Time
-        {
-                if(pfrom->nVersion < 60000)
-                    badVersion = true;
-        }
-        else
+        if(nTime > 1397808000) //Unix time stamp at 4/18/2014 8:00 Greenwich Mean Time
         {
             if(pfrom->nVersion < 70000)
                 badVersion = true;
