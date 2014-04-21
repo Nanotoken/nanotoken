@@ -2520,8 +2520,11 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             return false;
         }
 
-        if(nTime < 1397808000) //Unix time stamp at 4/18/2014 8:00 Greenwich Mean Time
+        if(nTime < 1398297600)          //Unix time stamp at 4/24/2014 0:00 UTC
         {
+            if(pfrom->nVersion < 70001)
+                badVersion = true;
+        }else{                          //anytime before said time
             if(pfrom->nVersion < 70000)
                 badVersion = true;
         }
