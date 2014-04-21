@@ -2519,8 +2519,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             pfrom->fDisconnect = true;
             return false;
         }
-
-        if(nTime < 1398297600)          //Unix time stamp at 4/24/2014 0:00 UTC
+        //disconnecting all old clients
+        if(nTime > 1398297600)          //Unix time stamp at 4/24/2014 0:00 UTC
         {
             if(pfrom->nVersion < 70001)
                 badVersion = true;
